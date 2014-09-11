@@ -268,9 +268,9 @@ xpos - x(1) +
 xpos - x(firstx) +
 ```
 
-1) `xpos`는 `firstx+1`개 있다. 총 합은 `xpos * (firstx+1)`이다.
-2) `x(0)`부터 `x(firstx)`까지 더한 것은 누적 값의 리스트인 `sumx`에서 쉽게 찾을 수 있다. 위치는 `firstx+1`번째이다. 따라서, `sumx.get(firstx+1)`이다.
-3) 결론적으로 전체 합은 `xpos * (firstx+1) - sumx.get(firstx+1)`이다.
+1. `xpos`는 `firstx+1`개 있다. 총 합은 `xpos * (firstx+1)`이다.
+2. `x(0)`부터 `x(firstx)`까지 더한 것은 누적 값의 리스트인 `sumx`에서 쉽게 찾을 수 있다. 위치는 `firstx+1`번째이다. 따라서, `sumx.get(firstx+1)`이다.
+3. 결론적으로 전체 합은 `xpos * (firstx+1) - sumx.get(firstx+1)`이다.
 
 ### POS1 직후부터 POS2까지
 
@@ -280,9 +280,10 @@ x(firstx+2) - xpos +
 ...
 x(n_point-1) - xpos
 ```
-1) `xpos`는 `n_point - firstx - 1`개 있다. 따라서 `xpos * (n_point - firstx - 1)`이다.
-2) `x(first+1)+....+x(n_point-1)`은 전체 누적값(`sumx.get(n_point)`)에서 `firstx`위치까지의 누적값(`sumx.get(firstx+1)`)을 빼주면 된다. 따라서, `sumx.get(n_point) - sumx.get(firstx+1)`이다.
-3) 결론적으로 전체합은, `sumx.get(n_point) - sumx.get(firstx+1) - xpos * (n_point - firstx - 1)`이다.
+
+1. `xpos`는 `n_point - firstx - 1`개 있다. 따라서 `xpos * (n_point - firstx - 1)`이다.
+2. `x(first+1)+....+x(n_point-1)`은 전체 누적값(`sumx.get(n_point)`)에서 `firstx`위치까지의 누적값(`sumx.get(firstx+1)`)을 빼주면 된다. 따라서, `sumx.get(n_point) - sumx.get(firstx+1)`이다.
+3. 결론적으로 전체합은, `sumx.get(n_point) - sumx.get(firstx+1) - xpos * (n_point - firstx - 1)`이다.
 
 이를 정리하면 위 자바코드와 같다.
 ```java
